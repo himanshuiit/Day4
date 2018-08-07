@@ -27,7 +27,6 @@ public class TennisMatch {
 		if ((points[idx] == 3 && points[1 - idx] < 3) || (points[idx] == 4)) {
 			updateSets(idx);
 		} else if (points[1 - idx] == 4) {
-			points[idx] = 3;
 			points[1 - idx] = 3;
 		} else
 			points[idx]++;
