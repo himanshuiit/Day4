@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TennisMatch {
 	private static int[] sets = new int[2];
 	private static int[] games = new int[2];
@@ -6,7 +8,9 @@ public class TennisMatch {
 	private static final String[] pointToString = { "0", "15", "30", "40", "AD" };
 
 	public static void main(String[] a) {
-		String input = "BABA";
+		Scanner s=new Scanner(System.in);
+		String input=s.nextLine();
+		s.close();
 		for (int i = 0; i < input.length(); i++)
 			updatePoints(input.charAt(i) - 65);
 		System.out.println("player:\t" + "A\tB");
