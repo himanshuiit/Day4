@@ -33,12 +33,10 @@ public class Polynomial
 		input=input.replaceAll("-x", "-1x");
 		input=input.replaceAll("\\+x", "+1x");
 		
-		System.out.println(input);
 		String []split=input.split("\\+");
 		for (String s : split){
 			if(s.isEmpty())
 				continue;
-			System.out.println(s);
 			if(!s.contains("x"))
 				coeff.put(0, Integer.parseInt(s));
 			else if(!s.contains("x^"))
