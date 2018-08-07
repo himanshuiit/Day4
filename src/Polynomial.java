@@ -26,11 +26,19 @@ public class Polynomial
 	
 	public Polynomial(String input){
 		coeff=new TreeMap<Integer, Integer>();
+		//input="+"+input;
+		if(input.charAt(0)=='x')
+			input='+'+input;
 		input=input.replaceAll("-", "+-");
+		input=input.replaceAll("-x", "-1x");
+		input=input.replaceAll("\\+x", "+1x");
+		
+		System.out.println(input);
 		String []split=input.split("\\+");
-		for (String s :split){
+		for (String s (worry) plit){
 			if(s.isEmpty())
 				continue;
+			System.out.println(s);
 			if(!s.contains("x"))
 				coeff.put(0, Integer.parseInt(s));
 			else if(!s.contains("x^"))
@@ -38,7 +46,6 @@ public class Polynomial
 			else
 				coeff.put(Integer.parseInt(s.substring(s.indexOf('^')+1)),Integer.parseInt(s.substring(0,s.indexOf('x'))));
 		}
-	}
 	
 	public Polynomial add(Polynomial pol2)
 	{
