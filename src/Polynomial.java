@@ -46,7 +46,7 @@ public class Polynomial
 			else
 				coeff.put(Integer.parseInt(s.substring(s.indexOf('^')+1)),Integer.parseInt(s.substring(0,s.indexOf('x'))));
 		}
-	
+	}
 	public Polynomial add(Polynomial pol2)
 	{
 		Polynomial result=new Polynomial();
