@@ -12,9 +12,11 @@ public class Polynomial
 		coeff=new TreeMap<Integer,Integer>();
 	}
 	
-	public Polynomial(Map<Integer,Integer> coeff)
+	public Polynomial(Map<Integer,Integer> inputMap)
 	{
-		this.coeff=coeff;
+		this.coeff=new TreeMap<Integer, Integer>();
+		for(Integer key: inputMap.keySet())
+			this.getCoeff().put(key, inputMap.get(key));
 	}
 	
 	public Map<Integer, Integer> getCoeff() 
@@ -62,7 +64,11 @@ public class Polynomial
         Map<Integer, Integer> second=addend.getCoeff();
         for(Map.Entry<Integer, Integer> term1: first.entrySet()){
             for(Map.Entry<Integer, Integer> term2: second.entrySet()){
-                resultMap.put(term1.getKey()+term2.getKey(), term1.getValue()*term2.getValue());
+            	int newExponent=term1.getKey()+term2.getKey();
+            	if(resultMap.containsKey(newExponent))
+            		resultMap.put(newExponent, resultMap.get(newExponent)+term1.getValue()*term2.getValue());
+            	else
+            		resultMap.put(newExponent, term1.getValue()*term2.getValue());
             }
         }
         return new Polynomial(resultMap);
@@ -104,14 +110,16 @@ public class Polynomial
 		return result;
 	}
 	
+	
+	
 	public static void main(String[] a)
 	{
-		Scanner s=new Scanner(System.in);
-		Polynomial p1=new Polynomial(s.nextLine());
-		Polynomial p2=new Polynomial(s.nextLine());
+		//Scanner s=new Scanner(System.in);
+		Polynomial p1=new Polynomial("x");//s.nextLine());
+		Polynomial p2=new Polynomial("-x");//s.nextLine());
 		System.out.println("Added result :"+p1.add(p2));
 		System.out.println("Difference : "+p1.subtract(p2));
 		System.out.println("Product : "+p1.multiply(p2));
-		s.close();
+		//s.close();
 	}
 }
