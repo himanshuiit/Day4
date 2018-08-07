@@ -111,7 +111,7 @@ public class Polynomial
 		}
 		if(result.isEmpty())
 			return "";
-		result=result.replace("+1x","+").replace("-1x","-");
+		result=result.replace("+1x","+x").replace("-1x","-x");
 		if(result.charAt(0)=='+')
 			return result.substring(1);
 		return result;
