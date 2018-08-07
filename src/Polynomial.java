@@ -35,7 +35,7 @@ public class Polynomial
 		
 		System.out.println(input);
 		String []split=input.split("\\+");
-		for (String s (worry) plit){
+		for (String s : split){
 			if(s.isEmpty())
 				continue;
 			System.out.println(s);
